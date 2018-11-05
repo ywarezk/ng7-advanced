@@ -1,0 +1,21 @@
+
+
+$varName : 'red';
+
+.hello {
+    background-color: $varName;
+    
+    .foo {
+
+    }    
+}
+
+.hello .foo {
+
+}
+
+$varName : 'blue';
+
+body {
+
+}
