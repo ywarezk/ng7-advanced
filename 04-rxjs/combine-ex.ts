@@ -1,4 +1,4 @@
-import { combineLatest } from 'rxjs';
+import { combineLatest, forkJoin } from 'rxjs';
 import { Subject } from 'rxjs';
 
 const sub1: Subject<number> = new Subject()

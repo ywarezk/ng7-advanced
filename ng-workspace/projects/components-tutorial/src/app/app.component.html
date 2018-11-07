@@ -1,0 +1,38 @@
+<app-child></app-child>
+
+<h2>
+    Input
+</h2>
+
+<p>
+    define attribute on the child tag. 
+    Child define where to get the attributes.
+    transfer from app -&gt; child
+</p>
+
+<p>
+    [] - calculate the js expression
+    you can use public properties from the class of app component
+    public methods from app component
+    [] - non sideeffect expression
+    they need to run fast
+</p>
+
+<!-- {{title}} -->
+
+<app-child 
+    message="hello world" 
+    [msgObj]="{message: 'hello from object', counter: 1 + 1, messageFromClass: sendHello()}" >
+</app-child>
+
+<!-- <p>
+    {{}}
+</p>
+
+<p [innerText]=""> -->
+
+<!-- </p> -->
+
+<!-- <img [src]="" />
+<img src="{{}}" /> -->
+
