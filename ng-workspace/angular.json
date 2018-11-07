@@ -133,6 +133,133 @@
           }
         }
       }
+    },
+    "search-todo": {
+      "root": "projects/search-todo/",
+      "sourceRoot": "projects/search-todo/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/search-todo",
+            "index": "projects/search-todo/src/index.html",
+            "main": "projects/search-todo/src/main.ts",
+            "polyfills": "projects/search-todo/src/polyfills.ts",
+            "tsConfig": "projects/search-todo/tsconfig.app.json",
+            "assets": [
+              "projects/search-todo/src/favicon.ico",
+              "projects/search-todo/src/assets"
+            ],
+            "styles": [
+              "projects/search-todo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/search-todo/src/environments/environment.ts",
+                  "with": "projects/search-todo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "search-todo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "search-todo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "search-todo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/search-todo/src/test.ts",
+            "polyfills": "projects/search-todo/src/polyfills.ts",
+            "tsConfig": "projects/search-todo/tsconfig.spec.json",
+            "karmaConfig": "projects/search-todo/karma.conf.js",
+            "styles": [
+              "projects/search-todo/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/search-todo/src/favicon.ico",
+              "projects/search-todo/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/search-todo/tsconfig.app.json",
+              "projects/search-todo/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "search-todo-e2e": {
+      "root": "projects/search-todo-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/search-todo-e2e/protractor.conf.js",
+            "devServerTarget": "search-todo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "search-todo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/search-todo-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-workspace"
