@@ -1,4 +1,6 @@
-<app-child></app-child>
+<!-- <app-child></app-child> -->
+
+{{title}}
 
 <h2>
     Input
@@ -20,9 +22,15 @@
 
 <!-- {{title}} -->
 
-<app-child 
+<!-- <app-child 
     message="hello world" 
     [msgObj]="{message: 'hello from object', counter: 1 + 1, messageFromClass: sendHello()}" >
+</app-child> -->
+
+<app-child 
+    iwantToKnowWhenChanging="hello world"
+    [message]="messageToChild" 
+    [msgObj]="objToChild" >
 </app-child>
 
 <!-- <p>
@@ -36,3 +44,94 @@
 <!-- <img [src]="" />
 <img src="{{}}" /> -->
 
+<h2>
+    @Output
+</h2>
+
+<p>
+    transfer event from child to parent
+</p>
+
+
+<app-child (sendHello)="title=$event">
+
+</app-child>
+
+{{title}}
+
+<h2>
+    Service    
+</h2>
+
+<p>
+    We can transfer events and data from different components not necesarily father and son
+</p>
+
+<p>
+    define data stream in service, listen and emit from that data stream to communicate between components.
+</p>
+
+<h2>
+    Template reference variable
+</h2>
+
+<p>
+    define variable that exists in the template
+</p>
+<p>
+    from parent grab the child instance and call properties and methods on the child instance
+</p>
+
+<p>
+    #nameOfVar
+</p>
+
+<p #pElement>
+
+</p>
+
+<app-child #childInstance>
+
+</app-child>
+
+{{childInstance.messageFromTemplateVar()}}
+
+<h2>
+    @ViewChild
+</h2>
+
+<p>
+    we can grab items from the template in the component class
+</p>
+
+<h2>
+    Transclusion
+</h2>
+
+<p>
+    communicate from parent to child
+    transfer template snippet from parent to child.
+    scope fo the template that is transfered to child is the parent
+</p>
+
+<app-child>
+    <div header>
+        <h1>
+            {{title}}
+        </h1>
+    </div>
+    <div footer>
+        <app-child #instanceOfMe></app-child>
+        <footer>
+            <h1>this is footer</h1>
+        </footer>
+    </div>
+</app-child>
+
+<h2>
+    @ContentChild
+</h2>
+
+<p>
+    helps me grab elements transfered with transclusion in my child class
+</p>
