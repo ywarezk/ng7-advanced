@@ -1,0 +1,39 @@
+<h1>
+  Template driven forms
+</h1>
+
+<form #nameForm="ngForm">
+  <label>Name:</label>
+  <input type="text" name="name" [(ngModel)]="name" isIdCorrect #nameNgModel="ngModel" />
+  {{nameNgModel.errors | json}}
+  <div *ngIf="nameNgModel?.errors?.required">
+    this field is required
+  </div>
+  <div *ngIf="nameNgModel.errors && nameNgModel?.errors['id-invalid']">
+    {{nameNgModel.errors['id-invalid']}}
+  </div>
+  <br />
+  <label>last name:</label>
+  <input type="text" name="lastName" [(ngModel)]="lastName" />
+
+  <app-select-cities required name="cities" [(ngModel)]="cities"></app-select-cities>
+
+    {{cities}}
+
+  <button [disabled]="nameForm.invalid">
+    submit
+  </button>
+</form>
+
+
+<h1>
+  Reactive Forms
+</h1>
+
+<input type="text" name="name" [formControl]="nameReactive" />
+
+<form [formGroup]="passwordForm">
+  <input type="password" name="password" formControlName="password" />
+  <input type="password" name="confirm" formControlName="confirm" />
+  <button [disabled]="passwordForm.invalid">Submit</button>
+</form>

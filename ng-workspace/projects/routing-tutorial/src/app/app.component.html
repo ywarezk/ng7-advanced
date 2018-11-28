@@ -1,0 +1,32 @@
+
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/">Home page</a>
+    </li>
+    <li>
+      <a routerLink="/about">About page</a>
+    </li>
+    <li>
+      <a routerLink="/settings/user">Settings User page</a>
+    </li>
+    <li>
+      <a routerLink="/settings/account">Settings account page</a>
+    </li>
+    <li>
+      <a [routerLink]="[{outlets: {popups: ['popups', 'login']}}]">Open Login Component</a> <!-- direct the user in the popups router outlet-->
+      <!-- <a [routerLink]="['user', 'settings', 'account']">Open Login Component</a> /user/settings/account -->
+    </li>
+    <li>
+      <a [routerLink]="[{outlets: {popups: ['popups', 'register']}}]">Open Register Component</a> <!-- direct the user in the popups router outlet-->
+      <!-- <a [routerLink]="['user', 'settings', 'account']">Open Login Component</a> /user/settings/account -->
+    </li>
+    <li>
+      <a routerLink="/matrix/123/hello-world">matrix params</a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+
+<router-outlet name="popups"></router-outlet>
