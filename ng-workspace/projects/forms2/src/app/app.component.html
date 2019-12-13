@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<form [formGroup]="friendsForm">
+  <ng-container formArrayName="friends">
+    <ng-container [formGroup]="group" *ngFor="let group of friendsForm.controls.friends.controls; let i = index">
+      <input formControlName="firstName" />
+      <input formControlName="lastName" />
+    </ng-container>
+  </ng-container>
+  <button (click)="add()">add friend</button>
+</form>
+
+<h1>
+  Stam
+</h1>
+<form #noModel="ngForm" repeat>
+  <input type="text" name="stam" ngModel />
+  <input type="text" name="stam1" ngModel />
+</form>

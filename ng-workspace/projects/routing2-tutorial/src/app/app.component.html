@@ -1,0 +1,22 @@
+<nav>
+  <ul>
+    <li>
+      <a [routerLink]="[{outlets: {popups: ['modal']}}]" skipLocationChange>open modal</a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet name="popups"></router-outlet>
+
+<button (click)="lazyLoad()">
+  Click here to lazy load
+</button>
+
+<div #container>
+  Load the component here
+</div>
+
+<button (click)="createComponent()">
+  Create dynamic component
+</button>
+
